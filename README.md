@@ -32,3 +32,29 @@ And local energy corresponding to $\Psi_{T2}$ given by:
 $$
 E_{L2} = E_{L1} + \frac{1}{2(1+\beta r_{12})^2} \left[\alpha\omega r_{12} - \frac{1}{2(1+\beta r_{12})^2} - \frac{2}{r_{12}} + \frac{2\beta}{1+\beta r_{12}}\right]
 $$
+
+## Method
+We want to perform a Variational Monte Carlo calculation of the ground state of two electrons in a quantum dot well with different oscillator energies, assuming total spin S=0. Compute:
+
+$$
+\langle H\rangle = \int P(\mathbf{R}) E_{L}(\mathbf{R}) d\mathbf{R}
+$$
+
+where
+
+$$
+P(\mathbf{R}) = \frac{\left|\Psi(R)\right|^2}{\int\left|\Psi(R)\right|^2 d\mathbf{R}}
+$$
+
+and $E_L$ is the local energy.
+
+The Monte Carlo moves are determined by $\mathbf{R'} = \mathbf{R} + \delta r$, where $\delta$ is a fixed step size for a particular $\alpha$, and $r$ is a random number from the uniform distribution.
+
+We first use this to find the energy minima and the corresponding alpha for the trial function $\Psi_{T1}$. We also find the expectation value of the mean distance between the electrons at the energy minimum for the optimal set of variational parameters. This is done for $\omega$ = 0.01, 0.5 and 1.0
+
+We thereafter use the optimal value of $\alpha$ as the starting point for computing the ground state energy of the system for the trial function $\Psi_{T2}(\mathbf{r_1,r_2,r_{12}})$, and its corresponding local energy $E_{L2}$. The strategy is to use the optimal $\alpha$, vary $\beta$ to find the lowest energy, and then change $\alpha$ to see if we can find an even lower energy, and so on. This is again done for $\omega$ = 0.01, 0.5 and 1.0
+
+## Outputs and Results
+The programme finds the most optimal values of $\alpha$ and $\beta$ for each $\omega$. At those values, it calculates ground state energy $E$, Var($E$), and mean separation between electrons $\langle \mathbf{r_{12}} \rangle$.
+
+The programme also plots the graphs of $E$ vs $\alpha$ at optimal $\beta$ and $E$ vs $\beta$ at optimal $\alpha$ for each $\omega$, and fits a polynomial to the values.
