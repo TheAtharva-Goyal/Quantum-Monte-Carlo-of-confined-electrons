@@ -19,7 +19,7 @@ We use trial functions:
 $$
 \Psi_{T1}(\mathbf{r}_1, \mathbf{r}_2) = C \exp\left(-\frac{\alpha\omega}{2} \left(r_1^2 + r_2^2\right)\right),
 $$
-and
+
 $$
 \Psi_{T2}(\mathbf{r}_1, \mathbf{r}_2) = C \exp\left(-\frac{\alpha\omega}{2} \left(r_1^2 + r_2^2\right)\right) \exp\left(\frac{r_{12}}{2(1 + \beta r_{12})}\right)
 $$
@@ -61,7 +61,7 @@ $$
 
 where $E_L$ is the local energy. The programme calculates the energy by averaging the local energy over a number of Monte Carlo samples (and hence may also fluctuate slightly between runs).
 
-Our Monte Carlo moves are determined by $\mathbf{R'} = \mathbf{R} + \delta r$, where $\delta$ is a fixed step size for a particular $\alpha$, $r$ is a random number from the uniform distribution, and $\mathbf{R}$=($x_1, y_1, z_1, x_2, y_2, x_2$).
+Our Monte Carlo moves are determined by $\mathbf{R'} = \mathbf{R} + \delta r$, where $\delta$ is a fixed step size for a particular $\alpha$, $r$ is a random number from the uniform distribution, and $\mathbf{R}$=($x_1, y_1, z_1, x_2, y_2, z_2$).
 
 We first use this to find the energy minima and the corresponding alpha for the trial function $\Psi_{T1}$. We also find the expectation value of the mean distance between the electrons at the energy minimum for the optimal set of variational parameters. This is done for $\omega$ = 0.01, 0.5 and 1.0
 
@@ -98,10 +98,12 @@ Results (with small margin of error):
 | $E$ vs. $\alpha$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
 | Var($E$) vs. $\alpha$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
 
-### Part 4: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Uncorrelated System
+### Part 4: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Correlated System
 The code `projpart4.c` calculates the most optimal values of $\alpha$ and $\beta$ for each of the three $\omega$'s. At those values, it calculates ground state energy $E$, Var($E$), and mean separation between electrons $\langle\mathbf{r_{12}}\rangle$. The initial values of $\alpha$ are taken from the previous part.
 
-Results for the trial function $\Psi_{T2}$ (with small margin of error):
+Note: The programme runs with acceptance of ~50% and gives Energy standard deviation $< 2.65\times 10^{-5}$ and Separation standard deviation $< 9.43\times 10^{-3}$ for all three values of $\omega$
+
+Results for the trial function $\Psi_{T2}$:
 
 | $\omega$ | Optimal $\beta$ | Optimal $\alpha$ | Estimated $E_{min}$ | $\langle \mathbf{r_{12}} \rangle$ | $Var(E_{min})$ |
 |----------|-----------------|------------------|---------------------|-----------------------------------|----------------|
