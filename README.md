@@ -51,24 +51,48 @@ $$
 
 and $E_L$ is the local energy. The programme calculates the energy by averaging the local energy over a number of Monte Carlo samples (and hence may also fluctuate slightly between runs).
 
-The Monte Carlo moves are determined by $\mathbf{R'} = \mathbf{R} + \delta r$, where $\delta$ is a fixed step size for a particular $\alpha$, and $r$ is a random number from the uniform distribution.
+The Monte Carlo moves are determined by $\mathbf{R'} = \mathbf{R} + \delta r$, where $\delta$ is a fixed step size for a particular $\alpha$, $r$ is a random number from the uniform distribution, and $\mathbf{R}$=($x_1, y_1, z_1, x_2, y_2, x_2$).
 
 We first use this to find the energy minima and the corresponding alpha for the trial function $\Psi_{T1}$. We also find the expectation value of the mean distance between the electrons at the energy minimum for the optimal set of variational parameters. This is done for $\omega$ = 0.01, 0.5 and 1.0
 
 We thereafter use the optimal value of $\alpha$ as the starting point for computing the ground state energy of the system for the trial function $\Psi_{T2}(\mathbf{r_1,r_2,r_{12}})$, and its corresponding local energy $E_{L2}$. The strategy is to use the optimal $\alpha$, vary $\beta$ to find the lowest energy, and then change $\alpha$ to see if we can find an even lower energy, and so on. This is again done for $\omega$ = 0.01, 0.5 and 1.0. Every time $\alpha$ or $\beta$ is changed, the value is accepted if it gives a smaller value of energy.
 
 ## Results
-The programme runs with $(50{\pm}0.2)$% acceptance.
+
+### Part 1: Minimum Energy for Non-interacting System
+The ground state energy for two-electron, non-interacting system is 3$\omega$. This acts as a benchmark for the code.
+
+Running `projpart1.c` gives $E_{min}$=2.999771 corresponding to $\alpha$=1.011371 at $\omega$=1.0, with acceptance rate of 48.47%.
+
+
+### Part 2: Plotting $E$ vs. $\alpha$ for $\Psi_{T1}$ and $E_{L1}$
+The code `projpart2.c` calculates values of $E$ at fixed intervals of $\alpha$ and plots the graph using Python.
+
+#### Graph
+<!--link to graph ka image-->
+
+### Part 3: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Uncorrelated System
+Calculating the values of $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for $\Psi_{T1}$ and $E_{L1}$
+
+Results (with small margin of error):
+
+| $\omega$ | Optimal $\alpha$ | Estimated $E_{min}$ | $\langle \mathbf{r_{12}} \rangle$ | $Variance(E_{min})$ |
+|----------|------------------|---------------------|-----------------------------------|---------------------|
+| 0.01     | 0.445226         | 0.093426            | 23.895274                         | 0.001315            |
+| 0.5      | 0.825126         | 2.038693            | 2.496276                          | 0.112110            |
+| 1.0      | 0.891457         | 3.769500            | 1.690311                          | 0.247102            | 
+
+---
 
 It finds the most optimal values of $\alpha$ and $\beta$ for each $\omega$. At those values, it calculates ground state energy $E$, Var($E$), and mean separation between electrons $\langle \mathbf{r_{12}} \rangle$.
 
-Results for the trial function $\Psi_{T1}$ (with ~2% margin of error):
+Results for the trial function $\Psi_{T2}$ (with small margin of error):
 
-| $\omega$ | Optimal $\alpha$ | Estimated $E_{min}$ | Mean separation $\langle \mathbf{r_{12}} \rangle$ | $Variance(E_{min})$ |
-|----------|------------------|----------------------|---------------------------------------------------|--------------------|
-| 0.01     | 0.454271         | 0.093298             | 23.670367                                         | 0.001317           |
-| 0.50     | 0.843216         | 2.037538             | 2.459868                                          | 0.118940           |
-| 1.00     | 0.885427         | 3.770180             | 1.692222                                          | 0.255363           |
+| $\omega$ | Optimal $\beta$ | Optimal $\alpha$ | Estimated $E_{min}$ | $\langle \mathbf{r_{12}} \rangle$ | $Variance(E_{min})$ |
+|----------|-----------------|------------------|---------------------|-----------------------------------|---------------------|
+| 0.01     | 0.048438        | 0.878878         | 0.079359            | 29.206342                         | 0.000004            |
+| 0.5      | 0.212500        | 0.993868         | 2.000076            | 2.671733                          | 0.000144            |
+| 1.0      | 0.330078        | 0.991940         | 3.730662            | 1.795705                          | 0.001040            |
 
 
 It also plots the graphs of $E$ vs $\alpha$ at optimal $\beta$ and $E$ vs $\beta$ at optimal $\alpha$ for each $\omega$, and fits a polynomial to the resultant data points.
