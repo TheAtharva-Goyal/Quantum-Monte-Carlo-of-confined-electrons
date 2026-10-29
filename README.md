@@ -62,13 +62,13 @@ The programme runs with $(50{\pm}0.2)$% acceptance.
 
 It finds the most optimal values of $\alpha$ and $\beta$ for each $\omega$. At those values, it calculates ground state energy $E$, Var($E$), and mean separation between electrons $\langle \mathbf{r_{12}} \rangle$.
 
-Results for the trial function $\Psi_{T1}$ (With some margin of error):
+Results for the trial function $\Psi_{T1}$ (with ~2% margin of error):
 
-| $\omega$ | Optimal $\alpha$ | Estimated energy $E$ | Mean separation $\langle \mathbf{r_{12}} \rangle$ |
-|----------|------------------|----------------------|---------------------------------------------------|
-| 0.01     | 0.454271         | 0.093298             | 23.670367                                         |
-| 0.50     | 0.843216         | 2.037538             | 2.459868                                          |
-| 1.00     | 0.885427         | 3.770180             | 1.692222                                          |
+| $\omega$ | Optimal $\alpha$ | Estimated $E_{min}$ | Mean separation $\langle \mathbf{r_{12}} \rangle$ | $Variance(E_{min})$ |
+|----------|------------------|----------------------|---------------------------------------------------|--------------------|
+| 0.01     | 0.454271         | 0.093298             | 23.670367                                         | 0.001317           |
+| 0.50     | 0.843216         | 2.037538             | 2.459868                                          | 0.118940           |
+| 1.00     | 0.885427         | 3.770180             | 1.692222                                          | 0.255363           |
 
 
 It also plots the graphs of $E$ vs $\alpha$ at optimal $\beta$ and $E$ vs $\beta$ at optimal $\alpha$ for each $\omega$, and fits a polynomial to the resultant data points.
