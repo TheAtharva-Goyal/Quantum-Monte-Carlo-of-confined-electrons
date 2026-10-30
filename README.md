@@ -85,23 +85,23 @@ The code `projpart2.c` calculates values of $E$ at uniform intervals of $\alpha$
 ### Part 3: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Uncorrelated System
 The code `projpart3.c` calculates the values of $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for $\Psi_{T1}$ and $E_{L1}$. Then we plot $E$ and Var($E$) vs. $\alpha$ using `plotter.py`
 
-Note: The programme runs with acceptance of ~50% and gives standard deviation of Energy $< 6.37\times 10^{-4}$ and standard deviation of Separation $< 2.06\times 10^{-2}$ for all three values of $\omega$ in 100 runs of 5 million Monte Carlo steps each.
+Note: The programme runs with acceptance of ~50% and gives standard deviation of Energy $< 6.37\times 10^{-4}$ (not related to $Var(E_{min})$ ) and standard deviation of Separation $< 2.06\times 10^{-2}$ for all three values of $\omega$ in 100 runs of 5 million Monte Carlo steps each at the minima.
 
-The deviation of calculated $E_{min}$ from analytical expression for ground state energy for trial function $\Psi_{T1}$
+The deviation of calculated $E_{min}$ from analytical expression of energy expectation for trial function $\Psi_{T1}$, which is
 
 $$
-E_{ana}(\alpha)=\frac{3\omega}{2}\left(\alpha +\frac{1}{\alpha}\right)+\sqrt{\frac{2\alpha\omega}{\pi}}
+E_{analytical}(\alpha)=\frac{3\omega}{2}\left(\alpha +\frac{1}{\alpha}\right)+\sqrt{\frac{2\alpha\omega}{\pi}}
 $$
 
-in 100 runs of 5 million Monte Carlo steps each is $< 6.49\times 10^{-4}$
+in 100 runs of 5 million Monte Carlo steps each at the minima is $< 6.50\times 10^{-4}$
 
 Results:
 
 | $\omega$ | Optimal $\alpha$ | Estimated $E_{min}$ | $\langle\mathbf{r_{12}}\rangle$ | $Var(E_{min})$ |
 |----------|------------------|---------------------|---------------------------------|----------------|
-| 0.01     | 0.445226         | 0.093426            | 23.895274                       | 0.001315       |
-| 0.5      | 0.825126         | 2.038693            | 2.496276                        | 0.112110       |
-| 1.0      | 0.891457         | 3.769500            | 1.690311                        | 0.247102       | 
+| 0.01 | 0.437310  | 0.093629        | 24.130319 | 0.001365   |
+| 0.5  | 0.817296  | 2.040659        | 2.496515  | 0.126559   |
+| 1.0  | 0.878946  | 3.773088        | 1.702181  | 0.269931   |
 
 #### Graphs
 | $\omega$ | 0.01 | 0.5 | 1.0 |
@@ -113,15 +113,15 @@ Results:
 ### Part 4: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Correlated System
 The code `projpart4.c` calculates the most optimal values of $\alpha$ and $\beta$ for each of the three $\omega$'s. At those values, it calculates ground state energy $E$, Var($E$), and mean separation between electrons $\langle\mathbf{r_{12}}\rangle$. The initial values of $\alpha$ are taken from the previous part.
 
-Note: The programme runs with acceptance of ~50% and gives standard deviation of Energy $< 2.65\times 10^{-5}$ and standard deviation of Separation $< 9.43\times 10^{-3}$ for all three values of $\omega$ in 100 runs of 5 million Monte Carlo steps each.
+Note: The programme runs with acceptance of ~50% and gives standard deviation of Energy $< 2.65\times 10^{-5}$ (not related to $Var(E_{min})$ ) and standard deviation of Separation $< 9.43\times 10^{-3}$ for all three values of $\omega$ in 100 runs of 5 million Monte Carlo steps each at the minima.
 
 Results for the trial function $\Psi_{T2}$:
 
 | $\omega$ | Optimal $\beta$ | Optimal $\alpha$ | Estimated $E_{min}$ | $\langle\mathbf{r_{12}}\rangle$ | $Var(E_{min})$ |
 |----------|-----------------|------------------|---------------------|---------------------------------|----------------|
-| 0.01     | 0.048438        | 0.878878         | 0.079359            | 29.206342                       | 0.000004       |
-| 0.5      | 0.212500        | 0.993868         | 2.000076            | 2.671733                        | 0.000144       |
-| 1.0      | 0.330078        | 0.991940         | 3.730662            | 1.795705                        | 0.001040       |
+| 0.01 | 0.044802  | 0.933212  | 0.079295        | 29.178112 | 0.000003   |
+| 0.5  | 0.199826  | 0.996432  | 2.000065        | 2.684703  | 0.000164   |
+| 1.0  | 0.275797  | 0.999145  | 3.730192        | 1.811207  | 0.000263   |
 
 
 ### Part 5: (Extra) Plotting graphs of $E$ vs $\alpha$ at optimal $\beta$, $E$ vs $\beta$ at optimal $\alpha$
@@ -144,9 +144,9 @@ to the uncorrelated wavefunction $\Psi_{T1}$, we get the following changes:
 
 | $\omega$ | Estimated $E_{min}$     | $Var(E_{min})$          | $\langle\mathbf{r_{12}}\rangle$ |
 |----------|-------------------------|-------------------------|---------------------------------|
-| 0.01     | 0.093426 $\to$ 0.079359 | 0.001315 $\to$ 0.000004 | 23.895274 $\to$ 29.206342       |
-| 0.5      | 2.038693 $\to$ 2.000076 | 0.112110 $\to$ 0.000144 | 2.496276 $\to$ 2.671733         |
-| 1.0      | 3.769500 $\to$ 3.730662 | 0.247102 $\to$ 0.001040 | 1.690311 $\to$ 1.795705         |
+| 0.01     | 0.093629 $\to$ 0.079295 | 0.001365 $\to$ 0.000003 | 24.130319 $\to$ 29.178112       |
+| 0.5      | 2.040659 $\to$ 2.000065 | 0.126559 $\to$ 0.000164 | 2.496515 $\to$ 2.684703         |
+| 1.0      | 3.773088 $\to$ 3.730192 | 0.269931 $\to$ 0.000263 | 1.702181 $\to$ 1.811207         |
 
 #### Why the Jastrow factor decreases $E_{min}$ and increases $\langle\mathbf{r_{12}}\rangle$
 Introducing the Jastrow factor to $\Psi_{T1}$ accounts for the inter-electron repulsion, which is obviously a more accurate description of the system. Hence we are able to model the ground state energy better, which gives a lower (and closer to actual) estimate for the energy. This can be seen by the fact that the variance of minimum energy drops substantially, which indicates that the calculated energy is more stable.
@@ -162,10 +162,13 @@ For both trial functions, $E_{min}$ is lowest for $\omega=0.01$ since due to the
 
 Similarly, $\langle\mathbf{r_{12}}\rangle$ is highest for  $\omega=0.01$ since due to the low strength of confinement, the electrons will tend to wander outwards more and hence will tend to be spaced further apart. For $\omega=1.0$, the higher strength of confinement will bring the electrons closer to the origin, and subsequently, each other.
 
-The higher and lower values for $E_{min}$ and $\langle\mathbf{r_{12}}\rangle$ respectively for the second trial function compared to the first is explained by the role of the Jastrow factor. Since it accounts for the inter-electron repulsion, it better models the system, and hence the VMC estimate of $E_{min}$ is lower. This inter-electron repulsion also leads to the electrons tending to stay comparatively further from each other, leading to an increased value of $\langle\mathbf{r_{12}}\rangle$ (especially when $\omega=0.01$, i.e. when the confinement is weak).
+The lower and higher values of $E_{min}$ and $\langle\mathbf{r_{12}}\rangle$ respectively for the second trial function compared to the first is explained by the role of the Jastrow factor. Since it accounts for the inter-electron repulsion, it better models the system, and hence the VMC estimate of $E_{min}$ is lower. This inter-electron repulsion also leads to the electrons tending to stay comparatively further from each other, leading to an increased value of $\langle\mathbf{r_{12}}\rangle$ (especially when $\omega=0.01$, i.e. when the confinement is weak).
 
 The reliability of the results for $\Psi_{T1}$ were calculated by running 100 loops of 5 million steps each. For the three values of $\omega$, the deviation from the analytical value of $E_{min}$ was less than $6.49\times 10^{-4}$, and the inter-run standard deviation for Energy and Separation was less than $6.37\times 10^{-4}$ and $2.06\times 10^{-2}$ respectively.
 
 Similarly, 100 loops of 5 million steps each were ran for $\Psi_{T2}$. Since no suitable analytical expression exists for it, we calculated only the inter-run standard deviations for Energy and Separation. These were respectively less than $2.65\times 10^{-5}$ and $9.43\times 10^{-3}$.
 
 ---
+### References
+- Metropolis et al. (1953), Equation of State Calculations by Fast Computing Machines
+- Hastings (1970), Monte Carlo Sampling Methods Using Markov Chains
