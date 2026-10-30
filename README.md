@@ -92,7 +92,7 @@ Results (with small margin of error):
 | 0.5      | 0.825126         | 2.038693            | 2.496276                          | 0.112110       |
 | 1.0      | 0.891457         | 3.769500            | 1.690311                          | 0.247102       | 
 
-#### Graphs of $E$ and Var($E$) vs. $\alpha$
+#### Graphs
 | $\omega$ | 0.01 | 0.5 | 1.0 |
 |----------|------|-----|-----|
 | $E$ vs. $\alpha$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
@@ -101,7 +101,7 @@ Results (with small margin of error):
 ### Part 4: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Correlated System
 The code `projpart4.c` calculates the most optimal values of $\alpha$ and $\beta$ for each of the three $\omega$'s. At those values, it calculates ground state energy $E$, Var($E$), and mean separation between electrons $\langle\mathbf{r_{12}}\rangle$. The initial values of $\alpha$ are taken from the previous part.
 
-Note: The programme runs with acceptance of ~50% and gives Energy standard deviation $< 2.65\times 10^{-5}$ and Separation standard deviation $< 9.43\times 10^{-3}$ for all three values of $\omega$
+Note: The programme runs with acceptance of ~50% and gives Energy standard deviation $< 2.65\times 10^{-5}$ and Separation standard deviation $< 9.43\times 10^{-3}$ for all three values of $\omega$ in 100 runs with 5 million Monte Carlo steps each.
 
 Results for the trial function $\Psi_{T2}$:
 
@@ -117,8 +117,8 @@ We plot the graphs of $E$ vs $\alpha$ at optimal $\beta$ and $E$ vs $\beta$ at o
 #### Graphs
 | $\omega$ | 0.01 | 0.5 | 1.0 |
 |----------|------|-----|-----|
-| $E$ vs. $\alpha$, $\beta_{optimal}$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
-| $E$ vs. $\beta$, $\alpha_{optimal}$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
+| $E$ vs. $\alpha$, $\beta=\beta_{optimal}$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
+| $E$ vs. $\beta$, $\alpha=\alpha_{optimal}$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
 
 ## Results
 It can be seen that upon introducing the Jastrow factor-
