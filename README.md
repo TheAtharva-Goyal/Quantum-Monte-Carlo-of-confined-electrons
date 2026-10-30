@@ -172,3 +172,9 @@ Similarly, 100 loops of 5 million steps each were ran for $\Psi_{T2}$. Since no 
 ### References
 - Metropolis et al. (1953), Equation of State Calculations by Fast Computing Machines
 - Hastings (1970), Monte Carlo Sampling Methods Using Markov Chains
+
+---
+### Authors
+This is our submission for the final project for **Dr. Kirit Makwana**'s Computational Physics (EP4120) course in Jul-Nov '26, at IIT Hyderabad
+
+[Amey Yadav](https://github.com/Amey-yadav26) -- [Atharva Goyal](https://github.com/TheAtharva-Goyal)
