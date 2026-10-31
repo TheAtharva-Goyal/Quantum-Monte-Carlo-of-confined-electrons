@@ -88,13 +88,14 @@ Running `projpart1.c` gives $E_{min}=2.999771$ corresponding to $\alpha=1.011371
 The code `projpart2.c` calculates values of $E$ at uniform intervals of $\alpha$ and plots the values using `plotter.py`
 
 #### Graphs
-![Part2_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w001.jpeg)
-![Part2_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w050.jpeg)
-![Part2_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w100.jpeg)
+
+| $\omega=0.01$ | $\omega=0.5$ | $\omega=1.0$ |
+|---------------|--------------|--------------|
+| ![Part2_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w001.jpeg) | ![Part2_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w050.jpeg) | ![Part2_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w100.jpeg) |
 
 
 ### Part 3: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Uncorrelated System
-The code `projpart3.c` calculates the values of $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for $\Psi_{T1}$ and $E_{L1}$. Then we plot $E$ and Var($E$) vs. $\alpha$ using `plotter.py`
+The code `projpart3.c` calculates the values of $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for $\Psi_{T1}$ and $E_{L1}$. Then plots $E$ and Var($E$) vs. $\alpha$ using `plotter.py`
 
 Note: The programme runs with acceptance of ~50% and gives standard deviation of Energy $< 6.37\times 10^{-4}$ (not related to $Var(E_{min})$ ) and standard deviation of Separation $< 2.06\times 10^{-2}$ for all three values of $\omega$ in 100 runs of 5 million Monte Carlo steps each at the minima.
 
@@ -109,10 +110,10 @@ Results:
 | 1.0  | 0.878946  | 3.773088        | 1.702181  | 0.269931   |
 
 #### Graphs
-| $\omega$ | 0.01 | 0.5 | 1.0 |
+| $\omega=0.01$ | $\omega=0.5$ | $\omega=1.0$ |
 |----------|------|-----|-----|
-|  | ![Part3_E_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w001.jpeg) | ![Part3_E_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w050.jpeg) | ![Part3_E_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w100.jpeg) |
-|  | ![Part3_V_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w001.jpeg) | ![Part3_V_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w050.jpeg) | ![Part3_V_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w100.jpeg) |
+| ![Part3_E_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w001.jpeg) | ![Part3_E_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w050.jpeg) | ![Part3_E_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w100.jpeg) |
+| ![Part3_V_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w001.jpeg) | ![Part3_V_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w050.jpeg) | ![Part3_V_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w100.jpeg) |
 
 
 ### Part 4: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Correlated System
@@ -130,13 +131,17 @@ Results for the trial function $\Psi_{T2}$:
 
 
 ### Part 5: (Extra) Plotting graphs of $E$ vs $\alpha$ at optimal $\beta$, $E$ vs $\beta$ at optimal $\alpha$
-We plot the graphs of $E$ vs $\alpha$ at optimal $\beta$ and $E$ vs $\beta$ at optimal $\alpha$ for each $\omega$. Then we fit a 4-degree polynomial to the resultant data points. Note: For $\omega$=0.01, since graph of $E$ vs $\beta$ is not well-behaving, we only fit the polynomial to the 150 points around the energy minimum
+The code `projpart5.c` calculates for all three $\omega$, values of Energy at the optimal $\alpha$ and $\beta$, once keeping $\alpha$ constant and once keeping $\beta$ constant. Then we plot the values using `abplotter.py` (this is done manually for each $\omega$).
+
+A 4-degree polynomial is fitted to the resultant data points. Note: For $\omega$=0.01, since graph of $E$ vs $\beta$ is not well-behaving, we only fit the polynomial to the 150 points around the energy minimum
+
+
 
 #### Graphs
-| $\omega$ | 0.01 | 0.5 | 1.0 |
+| $\omega=0.01$ | $\omega=0.5$ | $\omega=1.0$ |
 |----------|------|-----|-----|
-| $E$ vs. $\alpha$, $\beta=\beta_{optimal}$ | ![Part5_EA_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w001.jpeg) | ![Part5_EA_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w050.jpeg) | ![Part5_EA_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w100.jpeg) |
-| $E$ vs. $\beta$, $\alpha=\alpha_{optimal}$ | ![Part5_EB_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w001.jpeg) | ![Part5_EB_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w050.jpeg) | ![Part5_EB_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w100.jpeg) |
+| ![Part5_EA_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w001.jpeg) | ![Part5_EA_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w050.jpeg) | ![Part5_EA_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w100.jpeg) |
+| ![Part5_EB_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w001.jpeg) | ![Part5_EB_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w050.jpeg) | ![Part5_EB_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w100.jpeg) |
 
 #### Limitation of Variational Monte Carlo
 It can be seen that often times the minimum energy calculated by this approach lies below the exact energy given by the analytical approach, which should not be possible since it is established that the calculated energy should always lie above or equal to the analytical energy. It is not entirely right to say that such values are wrong, although they are not right either. This is a shortcoming of this numerical method, that each data point has some amount of noise and error, and taking the minimum over them often leads to picking a data point which lies below the exact energy. Hence, it is necessary to proceed with caution and properly learn the error in the results.
@@ -228,6 +233,7 @@ For example, using GCC: (ensure that the terminal is open in the folder containi
 
 ```powershell
     gcc cfile.c -O3 -march=native -o cfile
+
     if($?){ .\cfile }
 ```
 4. To run the Python code independently
@@ -285,6 +291,7 @@ For example, using GCC: (ensure that the terminal is open in the folder containi
 
 ```powershell
     gcc cfile.c -O3 -march=native -o cfile
+
     if($?){ .\cfile }
 ```
 
@@ -319,4 +326,4 @@ Replace omega with your desired value of omega- 0.01, 0.5 or 1.0
 
 [Amey Yadav](https://github.com/Amey-yadav26) -- [Atharva Goyal](https://github.com/TheAtharva-Goyal)
 
-This is our submission for the final project for **Dr. Kirit Makwana**'s Computational Physics (EP4120) course in Jul-Nov '26, at IIT Hyderabad
+This is our submission for the final project for **Dr. Kirit Makwana**'s Computational Physics (EP4120) course in Jul-Nov 2026, at IIT Hyderabad
