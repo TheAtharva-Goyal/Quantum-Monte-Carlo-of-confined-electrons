@@ -89,9 +89,7 @@ The code `projpart2.c` calculates values of $E$ at uniform intervals of $\alpha$
 
 #### Graphs
 ![Part2_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w001.jpeg)
-
 ![Part2_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w050.jpeg)
-
 ![Part2_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w100.jpeg)
 
 
@@ -114,7 +112,7 @@ Results:
 | $\omega$ | 0.01 | 0.5 | 1.0 |
 |----------|------|-----|-----|
 |  | ![Part3_E_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w001.jpeg) | ![Part3_E_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w050.jpeg) | ![Part3_E_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w100.jpeg) |
-| Var($E$) vs. $\alpha$ | ![Part3_V_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w001.jpeg) | ![Part3_V_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w050.jpeg) | ![Part3_V_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w100.jpeg) |
+|  | ![Part3_V_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w001.jpeg) | ![Part3_V_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w050.jpeg) | ![Part3_V_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w100.jpeg) |
 
 
 ### Part 4: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Correlated System
