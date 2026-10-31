@@ -111,7 +111,7 @@ Results:
 
 #### Graphs
 | $\omega=0.01$ | $\omega=0.5$ | $\omega=1.0$ |
-|----------|------|-----|-----|
+|---------------|--------------|--------------|
 | ![Part3_E_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w001.jpeg) | ![Part3_E_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w050.jpeg) | ![Part3_E_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w100.jpeg) |
 | ![Part3_V_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w001.jpeg) | ![Part3_V_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w050.jpeg) | ![Part3_V_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w100.jpeg) |
 
@@ -139,7 +139,7 @@ A 4-degree polynomial is fitted to the resultant data points. Note: For $\omega$
 
 #### Graphs
 | $\omega=0.01$ | $\omega=0.5$ | $\omega=1.0$ |
-|----------|------|-----|-----|
+|---------------|--------------|--------------|
 | ![Part5_EA_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w001.jpeg) | ![Part5_EA_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w050.jpeg) | ![Part5_EA_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w100.jpeg) |
 | ![Part5_EB_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w001.jpeg) | ![Part5_EB_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w050.jpeg) | ![Part5_EB_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w100.jpeg) |
 
