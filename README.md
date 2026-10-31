@@ -36,8 +36,17 @@ $$
 E_{L2} = E_{L1} + \frac{1}{2(1+\beta r_{12})^2} \left[\alpha\omega r_{12} - \frac{1}{2(1+\beta r_{12})^2} - \frac{2}{r_{12}} + \frac{2\beta}{1+\beta r_{12}}\right]
 $$
 
+### Why numerical methods are necessary
+While the analytical form of energy for $E_{L1}$ exists, no such universal analytical form exists for $E_{L2}$, which is why we use the Monte Carlo method to calculate ground state energy.
+
+$$
+E_{analytical}(\alpha)=\frac{3\omega}{2}\left(\alpha +\frac{1}{\alpha}\right)+\sqrt{\frac{2\alpha\omega}{\pi}}
+$$
+
+The primary shortcoming of analytical approach on expectation energy corresponding to $\Psi_{T2}$ is that the subsequent integral is generally non-integrable due to the Coulomb interaction coupling the radial and axial coordinates (although the referenced article by M. Taut shows that for a particular denumerably infinite set of oscillator frequencies, analytical solutions exist). Hence, we are motivated to use the numerical approach.
+
 ## Method
-Given the Hamiltonian $\hat{H}$, and the wavefunction depending on some parameters $\mathbf{\theta}$, the expectation of the energy is given by:
+Given the Hamiltonian $\hat{H}$, and the wavefunction depending on some parameters $\mathbf{\theta}=\left(\alpha,\beta,\gamma,...\right)$, the expectation of the energy is given by:
 
 $$
 E(\theta)=\frac{\langle\Psi(\theta)|\hat{H}|\Psi(\theta)\rangle}{\langle\Psi(\theta)|\Psi(\theta)\rangle} = \frac{\int|\Psi(R,\theta)|^2 \frac{\hat{H}\Psi(R,\theta)}{\Psi(R,\theta)} dR}{\int|\Psi(R,\theta)|^2 dR}
@@ -45,7 +54,7 @@ $$
 
 Upon solving this, the energy we get is $E(\theta)\geq E_0$ where the (unknown) ground state energy $E_0$ is defined by $\hat{H}|i_0\rangle=E_0|i_0\rangle$
 
-We try to minimise the value of $E(\theta)$ to make it as close as possible to the true energy $E_0$.
+We try to minimise the value of $E(\theta)$ to get it as close as possible to the true energy $E_0$.
 
 For that, we perform a Variational Monte Carlo calculation of the ground state of two electrons in a quantum dot well with different oscillator energies, taking total spin $s=0$ (since both electrons occupy the same lowest energy orbital, they must have opposite spins to obey Pauli's exclusion principle). Compute:
 
@@ -87,13 +96,7 @@ The code `projpart3.c` calculates the values of $E_{min}$, Var($E$) and $\langle
 
 Note: The programme runs with acceptance of ~50% and gives standard deviation of Energy $< 6.37\times 10^{-4}$ (not related to $Var(E_{min})$ ) and standard deviation of Separation $< 2.06\times 10^{-2}$ for all three values of $\omega$ in 100 runs of 5 million Monte Carlo steps each at the minima.
 
-The deviation of calculated $E_{min}$ from analytical expression of energy expectation for trial function $\Psi_{T1}$, which is
-
-$$
-E_{analytical}(\alpha)=\frac{3\omega}{2}\left(\alpha +\frac{1}{\alpha}\right)+\sqrt{\frac{2\alpha\omega}{\pi}}
-$$
-
-in 100 runs of 5 million Monte Carlo steps each at the minima is $< 6.50\times 10^{-4}$
+The deviation of calculated $E_{min}$ from analytical expression of energy expectation for trial function $\Psi_{T1}$ in 100 runs of 5 million Monte Carlo steps each at the minima is $< 6.50\times 10^{-4}$
 
 Results:
 
@@ -133,6 +136,12 @@ We plot the graphs of $E$ vs $\alpha$ at optimal $\beta$ and $E$ vs $\beta$ at o
 | $E$ vs. $\alpha$, $\beta=\beta_{optimal}$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
 | $E$ vs. $\beta$, $\alpha=\alpha_{optimal}$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
 
+#### Limitation of Variational Monte Carlo
+It can be seen that often times the minimum energy calculated by this approach lies below the exact energy given by the analytical approach, which should not be possible since it is established that the calculated energy should always lie above or equal to the analytical energy. It is not entirely right to say that such values are wrong, although they are not right either. This is a shortcoming of this numerical method, that each data point has some amount of noise and error, and taking the minimum over them often leads to picking a data point which lies below the exact energy. Hence, it is necessary to proceed with caution and properly learn the error in the results.
+
+#### Advantage of Variational Monte Carlo method
+The main advantage of this method is the freedom to choose complex trial functions which properly model the physical system without having to worry about solving their corresponding integrals and such. Which is because this method mainly requires the value of these functions at different points, which makes it relatively simple compared to something like matrix diagonalisation, and yields better results with significantly less CPU time. It is also easily parallelisable, which makes computation very efficient and quick. Another advantage in numerical integration is that VMC is able to handle the exponentially growing dimensionality of the multi-body Hilbert space (for N particles, it is $3^N$), which is where traditional numerical methods like Gauss-Legendre fail.
+
 ## Results
 It can be seen that upon introducing the Jastrow factor
 
@@ -153,7 +162,7 @@ Introducing the Jastrow factor to $\Psi_{T1}$ accounts for the inter-electron re
 
 We get an increase in the mean inter-electron distance upon accounting for their interaction since the electrons will repel each other, and hence will tend to stay further apart.
 
-Thus it can be seen that the Jastrow factor improves the uncorrelated trial wavefunction.
+Thus the Jastrow factor improves the uncorrelated trial wavefunction.
 
 ## Conclusion
 We used the Variational Monte Carlo method on the system of two electrons in a 3-D quantum dot to estimate their ground state energy and mean separation at three values of oscillator frequency $\omega$. We used two trial wavefunctions, $\Psi_{T1}(\mathbf{R},\alpha)$ and $\Psi_{T2}(\mathbf{R},\alpha,\beta)$, where the second (correlated) function incorporates a Jastrow factor to account for the inter-electron repulsion.
@@ -168,10 +177,21 @@ The reliability of the results for $\Psi_{T1}$ were calculated by running 100 lo
 
 Similarly, 100 loops of 5 million steps each were ran for $\Psi_{T2}$. Since no suitable analytical expression exists for it, we calculated only the inter-run standard deviations for Energy and Separation. These were respectively less than $2.65\times 10^{-5}$ and $9.43\times 10^{-3}$.
 
+#### An extension of this problem
+This method can be used to find the shape and size of the orbitals of He atom, where in the Hamiltonian, the oscillator term $\frac{1}{2}\omega^2r_i^2$ will be replaced by the Coulomb potential between the electron and nucleus, i.e. $\frac{2}{r_i}$, and subsequently the trial functions and their corresponding local energies will change.
+
+---
+### Running the code
+
+
 ---
 ### References
 - Metropolis et al. (1953), Equation of State Calculations by Fast Computing Machines
 - Hastings (1970), Monte Carlo Sampling Methods Using Markov Chains
+- [M. Taut, Phys. Rev. A 48, 3561 (1993)](https://journals.aps.org/pra/pdf/10.1103/PhysRevA.48.3561)
+- [Variational Principle short notes, Section 8.1](https://www2.ph.ed.ac.uk/~gja/qp/qp8.pdf)
+- [Variational Monte Carlo wiki](https://en.wikipedia.org/wiki/Variational_Monte_Carlo)
+- [Computational Physics GitHub repository](https://github.com/CompPhysics/ComputationalPhysics)
 
 ---
 ### Authors
