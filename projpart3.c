@@ -156,7 +156,7 @@ int main(){
     for(int i=0; i<N_al; i++) fprintf(fp, "%f,%f,%f\n", a[i], Ealpha[i], VarEalpha[i]);
     fclose(fp);
     char cmd[100];
-    sprintf(cmd, "uv run plotter.py %.2f", w); //command to run the python file taking input value of w
+    sprintf(cmd, "python plotter.py\" %.2f", w); //command to run the python file taking input value of w
     system(cmd);
 
     return 0;

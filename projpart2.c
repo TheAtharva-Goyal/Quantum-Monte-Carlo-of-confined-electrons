@@ -9,8 +9,8 @@
 #include <stdint.h>
 #include <time.h>
 
-#define N_al 1000 //number of steps for alpha
-#define N_r 1000000 //number of steps for the coordinates
+#define N_al 300 //number of steps for alpha
+#define N_r 200000 //number of steps for the coordinates
 #define B (N_r/5)
 
 //-----------xoshiro256** algo:-----------------
@@ -131,7 +131,7 @@ int main(){
     for(int i=0; i<N_al; i++) fprintf(fp, "%f,%f\n", a[i], Ealpha[i]);
     fclose(fp);
     char cmd[100];
-    sprintf(cmd, "uv run plotter.py %.2f", w); //command to run the python file taking input value of w
+    sprintf(cmd, "python plotter.py\" %.2f", w); //command to run the python file taking input value of w
     system(cmd);
 
     return 0;

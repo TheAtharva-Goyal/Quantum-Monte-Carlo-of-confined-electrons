@@ -181,8 +181,110 @@ Similarly, 100 loops of 5 million steps each were ran for $\Psi_{T2}$. Since no 
 This method can be used to find the shape and size of the orbitals of He atom, where in the Hamiltonian, the oscillator term $\frac{1}{2}\omega^2r_i^2$ will be replaced by the Coulomb potential between the electron and nucleus, i.e. $\frac{2}{r_i}$, and subsequently the trial functions and their corresponding local energies will change.
 
 ---
-### Running the code
+## Running the programme
+The following is for Windows only. MacOS/Linux support is not guaranteed
 
+#### Prerequisites: (preferrably, the latest versions of)
+- Python
+- GCC or any compatible C compiler
+- Git (only for cloning the repository)
+
+#### Using uv (recommended):
+If you have not done so, please install uv through the official windows instructions:
+
+https://docs.astral.sh/uv/getting-started/installation/
+
+Verify that the installation was successful before proceeding.
+
+1. Clone the GitHub repository
+
+```powershell
+    git clone https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons
+    cd Quantum-Monte-Carlo-of-confined-electrons
+```
+
+2. Set up a Python virtual environment and activate it
+
+```powershell
+    uv sync
+```
+
+This creates/updates the project's .venv environment and installs the dependencies. Activate the virtual environment using
+
+```powershell
+    # for windows powershell
+    .\.venv\Scripts\activate.ps1
+
+    #for windows command prompt
+    .\.venv\Scripts\activate.bat
+```
+
+3. Compile and run the C files
+For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
+
+```powershell
+    gcc cfile.c -O3 -march=native -o cfile
+    if($?){ .\cfile }
+```
+4. To run the Python code independently
+
+```powershell
+    uv run pythonfile.py omega
+```
+
+Replace <omega> with your desired value of omega- 0.01, 0.5 or 1.0
+
+(Note: the .csv files must exist in the same folder as the Python and C files)
+
+#### Without using uv:
+This method uses Python's in-built venv module and pip.
+
+1. Clone the GitHub repository
+
+```powershell
+    git clone https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons
+    cd Quantum-Monte-Carlo-of-confined-electrons
+```
+
+2. Create a Python virtual environment
+
+```powershell
+    py -m venv .venv
+```
+
+Activate the virtual environment
+
+```powershell
+    # for windows powershell
+    .\.venv\Scripts\activate.ps1
+
+    #for windows command prompt
+    .\.venv\Scripts\activate.bat
+```
+
+3. Install the dependencies
+
+```powershell
+    .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+4. Compile and run the C files
+For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
+
+```powershell
+    gcc cfile.c -O3 -march=native -o cfile
+    if($?){ .\cfile }
+```
+
+5. To run the Python code independently
+
+```powershell
+    python pythonfile.py omega
+```
+
+Replace <omega> with your desired value of omega- 0.01, 0.5 or 1.0
+
+(Note: the .csv files must exist in the same folder as the Python and C files)
 
 ---
 ### References
@@ -195,6 +297,7 @@ This method can be used to find the shape and size of the orbitals of He atom, w
 
 ---
 ### Authors
-This is our submission for the final project for **Dr. Kirit Makwana**'s Computational Physics (EP4120) course in Jul-Nov '26, at IIT Hyderabad
 
 [Amey Yadav](https://github.com/Amey-yadav26) -- [Atharva Goyal](https://github.com/TheAtharva-Goyal)
+
+This is our submission for the final project for **Dr. Kirit Makwana**'s Computational Physics (EP4120) course in Jul-Nov '26, at IIT Hyderabad
