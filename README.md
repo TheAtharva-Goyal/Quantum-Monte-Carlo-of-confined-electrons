@@ -87,8 +87,12 @@ Running `projpart1.c` gives $E_{min}=2.999771$ corresponding to $\alpha=1.011371
 ### Part 2: Plotting $E$ vs. $\alpha$ for $\Psi_{T1}$ and $E_{L1}$
 The code `projpart2.c` calculates values of $E$ at uniform intervals of $\alpha$ and plots the values using `plotter.py`
 
-#### Graph
-<!--link to graph image-->
+#### Graphs
+![Part2_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w001.jpeg)
+
+![Part2_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w050.jpeg)
+
+![Part2_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart2/EvsA_w100.jpeg)
 
 
 ### Part 3: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Uncorrelated System
@@ -109,8 +113,8 @@ Results:
 #### Graphs
 | $\omega$ | 0.01 | 0.5 | 1.0 |
 |----------|------|-----|-----|
-| $E$ vs. $\alpha$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
-| Var($E$) vs. $\alpha$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
+|  | ![Part3_E_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w001.jpeg) | ![Part3_E_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w050.jpeg) | ![Part3_E_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/EvsA_w100.jpeg) |
+| Var($E$) vs. $\alpha$ | ![Part3_V_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w001.jpeg) | ![Part3_V_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w050.jpeg) | ![Part3_V_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart3/VvsA_w100.jpeg) |
 
 
 ### Part 4: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Correlated System
@@ -133,8 +137,8 @@ We plot the graphs of $E$ vs $\alpha$ at optimal $\beta$ and $E$ vs $\beta$ at o
 #### Graphs
 | $\omega$ | 0.01 | 0.5 | 1.0 |
 |----------|------|-----|-----|
-| $E$ vs. $\alpha$, $\beta=\beta_{optimal}$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
-| $E$ vs. $\beta$, $\alpha=\alpha_{optimal}$ | <!--link to graph image--> | <!--link to graph image--> | <!--link to graph image--> |
+| $E$ vs. $\alpha$, $\beta=\beta_{optimal}$ | ![Part5_EA_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w001.jpeg) | ![Part5_EA_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w050.jpeg) | ![Part5_EA_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsA_B_w100.jpeg) |
+| $E$ vs. $\beta$, $\alpha=\alpha_{optimal}$ | ![Part5_EB_w=0.01](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w001.jpeg) | ![Part5_EB_w=0.5](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w050.jpeg) | ![Part5_EB_w=1.0](https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons/blob/main/graphs/projpart5/EvsB_A_w100.jpeg) |
 
 #### Limitation of Variational Monte Carlo
 It can be seen that often times the minimum energy calculated by this approach lies below the exact energy given by the analytical approach, which should not be possible since it is established that the calculated energy should always lie above or equal to the analytical energy. It is not entirely right to say that such values are wrong, although they are not right either. This is a shortcoming of this numerical method, that each data point has some amount of noise and error, and taking the minimum over them often leads to picking a data point which lies below the exact energy. Hence, it is necessary to proceed with caution and properly learn the error in the results.
@@ -189,7 +193,7 @@ The following is for Windows only. MacOS/Linux support is not guaranteed
 - GCC or any compatible C compiler
 - Git (only for cloning the repository)
 
-#### Using uv (recommended):
+### Using uv (recommended):
 If you have not done so, please install uv through the official windows instructions:
 
 https://docs.astral.sh/uv/getting-started/installation/
@@ -200,6 +204,7 @@ Verify that the installation was successful before proceeding.
 
 ```powershell
     git clone https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons
+
     cd Quantum-Monte-Carlo-of-confined-electrons
 ```
 
@@ -220,6 +225,7 @@ This creates/updates the project's .venv environment and installs the dependenci
 ```
 
 3. Compile and run the C files
+
 For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
 
 ```powershell
@@ -232,17 +238,24 @@ For example, using GCC: (ensure that the terminal is open in the folder containi
     uv run pythonfile.py omega
 ```
 
-Replace <omega> with your desired value of omega- 0.01, 0.5 or 1.0
+Replace omega with your desired value of omega- 0.01, 0.5 or 1.0
 
 (Note: the .csv files must exist in the same folder as the Python and C files)
 
-#### Without using uv:
+5. Deactivate once you are done
+
+```powershell
+    deactivate
+```
+
+### Without using uv:
 This method uses Python's in-built venv module and pip.
 
 1. Clone the GitHub repository
 
 ```powershell
     git clone https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons
+
     cd Quantum-Monte-Carlo-of-confined-electrons
 ```
 
@@ -269,6 +282,7 @@ Activate the virtual environment
 ```
 
 4. Compile and run the C files
+
 For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
 
 ```powershell
@@ -282,9 +296,16 @@ For example, using GCC: (ensure that the terminal is open in the folder containi
     python pythonfile.py omega
 ```
 
-Replace <omega> with your desired value of omega- 0.01, 0.5 or 1.0
+Replace omega with your desired value of omega- 0.01, 0.5 or 1.0
 
 (Note: the .csv files must exist in the same folder as the Python and C files)
+
+6. Deactivate once you are done
+
+```powershell
+    deactivate
+```
+
 
 ---
 ### References
