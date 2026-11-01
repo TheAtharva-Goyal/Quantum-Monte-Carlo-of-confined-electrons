@@ -191,9 +191,9 @@ This method can be used to find the shape and size of the orbitals of He atom, w
 ## Running the programme
 The following is for Windows only. MacOS/Linux support is not guaranteed
 
-#### Prerequisites: (preferrably, the latest versions of)
-- Python
-- GCC or any compatible C compiler
+#### Prerequisites:
+- Python (a version compatible with the project)
+- GCC (or any compatible C compiler, adapting the compilation commands accordingly)
 - Git (only for cloning the repository; alternatively, you can download the repository's .zip file, extract it, and open your terminal in the folder)
 
 ### Using uv (recommended):
@@ -203,7 +203,7 @@ https://docs.astral.sh/uv/getting-started/installation/
 
 Verify that the installation was successful before proceeding.
 
-1. Clone the GitHub repository
+1. Clone the GitHub repository (skip if you have already opened a terminal in the folder)
 
 ```powershell
     git clone https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons
@@ -222,7 +222,7 @@ This creates/updates the project's .venv environment and installs the dependenci
 ```powershell
     # for windows powershell
     .\.venv\Scripts\activate.ps1
-
+    # OR
     #for windows command prompt
     .\.venv\Scripts\activate.bat
 ```
@@ -232,19 +232,20 @@ This creates/updates the project's .venv environment and installs the dependenci
 For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
 
 ```powershell
-    gcc cfile.c -O3 -march=native -o cfile #exclude -march=native on ARM64 devices using GCC
-
-    if($?){ .\cfile }
+    gcc cfile.c -O3 -o cfile && if($?) { .\cfile }
 ```
+
+(Replace cfile with projpart1/projpart2/...)
+
 4. To run the Python code independently
 
 ```powershell
     uv run pythonfile.py omega
 ```
 
-Replace omega with your desired value of omega- 0.01, 0.5 or 1.0
+Replace pythonfile with plotter/abplotter.
 
-(Note: the .csv files must exist in the same folder as the Python and C files)
+The plotting files require their corresponding .csv files to be present. Run the relevent C programmes to generate data where necessary. `plotter.py` only plots for the $\omega$ present in the files for Parts 2 and 3. for `abplotter.py`, run the script separately for each value of $\omega$.
 
 5. Deactivate once you are done
 
@@ -255,7 +256,7 @@ Replace omega with your desired value of omega- 0.01, 0.5 or 1.0
 ### Without using uv:
 This method uses Python's in-built venv module and pip.
 
-1. Clone the GitHub repository
+1. Clone the GitHub repository (skip if you have already opened a terminal in the folder)
 
 ```powershell
     git clone https://github.com/TheAtharva-Goyal/Quantum-Monte-Carlo-of-confined-electrons
@@ -266,7 +267,7 @@ This method uses Python's in-built venv module and pip.
 2. Create a Python virtual environment
 
 ```powershell
-    py -m venv .venv
+    python -m venv .venv
 ```
 
 Activate the virtual environment
@@ -274,7 +275,7 @@ Activate the virtual environment
 ```powershell
     # for windows powershell
     .\.venv\Scripts\activate.ps1
-
+    #OR
     #for windows command prompt
     .\.venv\Scripts\activate.bat
 ```
@@ -290,10 +291,10 @@ Activate the virtual environment
 For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
 
 ```powershell
-    gcc cfile.c -O3 -march=native -o cfile #exclude -march=native on ARM64 devices using GCC
-
-    if($?){ .\cfile }
+    gcc cfile.c -O3 -o cfile && if($?) { .\cfile }
 ```
+
+(Replace cfile with projpart1/projpart2/...)
 
 5. To run the Python code independently
 
@@ -301,9 +302,9 @@ For example, using GCC: (ensure that the terminal is open in the folder containi
     python pythonfile.py omega
 ```
 
-Replace omega with your desired value of omega- 0.01, 0.5 or 1.0
+Replace pythonfile with plotter/abplotter.
 
-(Note: the .csv files must exist in the same folder as the Python and C files)
+The plotting files require their corresponding .csv files to be present. Run the relevent C programmes to generate data where necessary. `plotter.py` only plots for the $\omega$ present in the files for Parts 2 and 3. for `abplotter.py`, run the script separately for each value of $\omega$.
 
 6. Deactivate once you are done
 
