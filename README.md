@@ -232,7 +232,7 @@ This creates/updates the project's .venv environment and installs the dependenci
 For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
 
 ```powershell
-    gcc cfile.c -O3 -march=native -o cfile
+    gcc cfile.c -O3 -march=native -o cfile #exclude -march=native on ARM64 devices using GCC
 
     if($?){ .\cfile }
 ```
@@ -290,7 +290,7 @@ Activate the virtual environment
 For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
 
 ```powershell
-    gcc cfile.c -O3 -march=native -o cfile
+    gcc cfile.c -O3 -march=native -o cfile #exclude -march=native on ARM64 devices using GCC
 
     if($?){ .\cfile }
 ```
