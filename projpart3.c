@@ -2,15 +2,14 @@
 // USING METROPOLIS-HASTINGS TO FIND MEAN SEPARATION OF ELECTRONS AND VARIANCE OF ENERGY AT ENERGY MINIMUM
 //========================================================================================================
 
-
+//note: manually change w between 0.01, 0.5 and 1.0 and run the programme
 #include <stdio.h>
 #include <math.h>
 #include <stdint.h>
 #include <time.h>
-#include <stdlib.h>
 
-#define N_al 500 //number of steps for alpha
-#define N_r 2000000 //number of steps for the coordinates
+#define N_al 200 //number of steps for alpha
+#define N_r 300000 //number of steps for the coordinates
 #define B (N_r/5) //burn-in
 
 //-----------xoshiro256** algo:-----------------
@@ -58,7 +57,7 @@ double radius2(double x, double y, double z){ //square of (x,y,z) from origin
     return x*x+y*y+z*z;
 }
 
-static double w=1.0; double a[N_al]={0.0}, Ealpha[N_al]={0.0}, VarEalpha[N_al]={0.0}; //note: manually change w to 0.01 and 0.5 and run the programme
+static double w=1.0; double a[N_al]={0.0}, Ealpha[N_al]={0.0}, VarEalpha[N_al]={0.0};
 
 double stepfinder(double a, double w, double delmin, double delmax){ //finds the step size for ~50% acceptance for any pair (a,w)
     long long plt=B, burn=0.5*B, ct=plt-burn; //defining the number of iterations of the loop and burn-in
@@ -156,7 +155,7 @@ int main(){
     for(int i=0; i<N_al; i++) fprintf(fp, "%f,%f,%f\n", a[i], Ealpha[i], VarEalpha[i]);
     fclose(fp);
     char cmd[100];
-    sprintf(cmd, "python plotter.py\" %.2f", w); //command to run the python file taking input value of w
+    sprintf(cmd, "python plotter.py %.2f", w); //command to run the python file taking input value of w
     system(cmd);
 
     return 0;

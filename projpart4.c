@@ -9,11 +9,11 @@
 #include <stdint.h>
 #include <time.h>
 
-#define N_r 2000000 //number of steps for the coordinates
+#define N_r 200000 //number of steps for the coordinates
 #define N_f 50000000 //number of steps for final evaluation
 #define B (N_r/4) //burn-in
-#define PLT 100000 //number of loops for stepfinder
-#define N_l 31 //number of values checked for alpha and beta
+#define PLT 450000 //number of loops for stepfinder
+#define N_l 11 //number of values checked for alpha and beta
 
 //-----------xoshiro256** algo:-----------------
 static uint64_t s[4];
@@ -119,7 +119,7 @@ int main(){
     for(int i=0; i<3; i++){ //one loop for each value of w
         double w=wval[i], a=a0val[i], b=1.0; //starting (middle) values of alpha and beta
         double da=0.4, db=1.0; //half of range of alpha and beta
-        for(int j=0; j<20; j++){
+        for(int j=0; j<8; j++){
             double sa=2*da/(N_l-1), sb=2*db/(N_l-1); //step size for alpha and beta
             double best=1.0e20, bb=b; int ib=0; //finding the best value of beta and its index
             for(int k=0; k<N_l; k++){

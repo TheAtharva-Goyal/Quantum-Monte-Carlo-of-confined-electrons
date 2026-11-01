@@ -9,12 +9,12 @@
 #include <stdint.h>
 #include <time.h>
 
-#define N_r 500000 //number of steps for the coordinates
-#define N_f 50000000 //number of steps for final evaluation
+#define N_r 200000 //number of steps for the coordinates
+#define N_f 10000000 //number of steps for final evaluation
 #define B (N_r/4) //burn-in
 #define PLT 50000 //number of loops for stepfinder
-#define N_l 21 //number of values checked for alpha and beta
-#define N_plot 501 //number of values of alpha and beta for graph plotting
+#define N_l 11 //number of values checked for alpha and beta
+#define N_plot 301 //number of values of alpha and beta for graph plotting
 #define Aspan 0.10 //width of range of alpha and beta for graph plotting
 #define Bspan 0.10
 
@@ -138,7 +138,7 @@ int main(){
     for(int i=0; i<3; i++){ //one loop for each value of w
         double w=wval[i], a=a0val[i], b=1.0; //starting (middle) values of alpha and beta
         double da=0.4, db=1.0; //half of range of alpha and beta
-        for(int j=0; j<15; j++){
+        for(int j=0; j<8; j++){
             double sa=2*da/(N_l-1), sb=2*db/(N_l-1); //step size for alpha and beta
             double best=1.0e20, bb=b; int ib=0; //finding the best value of beta and its index
             for(int k=0; k<N_l; k++){
@@ -168,7 +168,7 @@ int main(){
             double ca;
             if(x<=mid) ca=a-alpha_down*(double)(mid-x)/mid;
             else ca=a+Aspan*(double)(x-mid)/mid;
-            eval_step(ca, b, w, 20*N_r, pltst); fprintf(alpha_file, "%.8g,%.12g,%.12g,%.12g,%.12g\n", w, ca, b, a, vals[0]);
+            eval_step(ca, b, w, N_r, pltst); fprintf(alpha_file, "%.8g,%.12g,%.12g,%.12g,%.12g\n", w, ca, b, a, vals[0]);
         }
 
         double beta_down=fmin(Bspan, b);
@@ -176,10 +176,10 @@ int main(){
             double cb;
             if(x<=mid) cb=b-beta_down*(double)(mid-x)/mid;
             else cb=b+Bspan*(double)(x-mid)/mid;
-            eval_step(a, cb, w, 100*N_r, pltst); fprintf(beta_file, "%.8g,%.12g,%.12g,%.12g,%.12g\n", w, cb, a, b, vals[0]);
+            eval_step(a, cb, w, 5*N_r, pltst); fprintf(beta_file, "%.8g,%.12g,%.12g,%.12g,%.12g\n", w, cb, a, b, vals[0]);
         }
     }
-    fcloseall;
+    fclose(alpha_file); fclose(beta_file);
 
     return 0;
 }

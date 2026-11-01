@@ -194,10 +194,10 @@ The following is for Windows only. MacOS/Linux support is not guaranteed
 #### Prerequisites: (preferrably, the latest versions of)
 - Python
 - GCC or any compatible C compiler
-- Git (only for cloning the repository)
+- Git (only for cloning the repository; alternatively, you can download the repository's .zip file, extract it, and open your terminal in the folder)
 
 ### Using uv (recommended):
-If you have not done so, please install uv through the official windows instructions:
+You may install uv through the official windows instructions:
 
 https://docs.astral.sh/uv/getting-started/installation/
 

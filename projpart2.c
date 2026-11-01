@@ -2,14 +2,13 @@
 // USING METROPOLIS-HASTINGS ALGORITHM TO PLOT ENERGY VS ALPHA FOR TRIAL FUNCTION 1
 //=================================================================================
 
-
+//note: manually change w between 0.01, 0.5 and 1.0 and run the programme
 #include <stdio.h>
 #include <math.h>
-#include <stdlib.h>
 #include <stdint.h>
 #include <time.h>
 
-#define N_al 300 //number of steps for alpha
+#define N_al 200 //number of steps for alpha
 #define N_r 200000 //number of steps for the coordinates
 #define B (N_r/5)
 
@@ -131,7 +130,7 @@ int main(){
     for(int i=0; i<N_al; i++) fprintf(fp, "%f,%f\n", a[i], Ealpha[i]);
     fclose(fp);
     char cmd[100];
-    sprintf(cmd, "python plotter.py\" %.2f", w); //command to run the python file taking input value of w
+    sprintf(cmd, "python plotter.py %.2f", w); //command to run the python file taking input value of w
     system(cmd);
 
     return 0;
