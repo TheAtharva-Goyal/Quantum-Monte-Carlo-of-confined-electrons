@@ -7,6 +7,7 @@
 #include <math.h>
 #include <stdint.h>
 #include <time.h>
+#include <stdlib.h>
 
 #define N_al 200 //number of steps for alpha
 #define N_r 300000 //number of steps for the coordinates
