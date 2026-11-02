@@ -81,7 +81,7 @@ We thereafter use the optimal value of $\alpha$ as the starting point for comput
 ### Part 1: Minimum Energy for Non-interacting System
 The ground state energy for two-electron, non-interacting system is $3\omega$ (since the ground state energy for a single electron is $\frac{3\omega}{2}$) at $\alpha=1.0$. Hence, the exact result is $E=3$ atomic units at $\omega=1.0$. This acts as a benchmark for the code.
 
-Running `projpart1.c` gives $E_{min}=2.999771$ corresponding to $\alpha=1.011371$ at $\omega=1.0$, with acceptance rate of 48.47%.
+Running `projpart1.c` gives $E_{min}=2.999918$ corresponding to $\alpha=0.990000$ at $\omega=1.0$, with acceptance rate of 62.09%.
 
 
 ### Part 2: Plotting $E$ vs. $\alpha$ for $\Psi_{T1}$ and $E_{L1}$
@@ -236,10 +236,10 @@ This creates/updates the project's .venv environment and installs the dependenci
 For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
 
 ```powershell
-    gcc cfile.c vmc.c -O3 -flto -o cfile && if($?) { .\cfile }
+    gcc cfile.c vmc.c -O3 -flto -o cfile ; if($?) { .\cfile }
 ```
 
-(Replace cfile with projpart2/projpart3/...; for projpart1, please exclude vmc.c and -flto)
+(Replace cfile with projpart1/projpart2/...)
 
 4. Run the Python code independently
 
@@ -295,10 +295,10 @@ Activate the virtual environment
 For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
 
 ```powershell
-    gcc cfile.c vmc.c -O3 -flto -o cfile && if($?) { .\cfile }
+    gcc cfile.c vmc.c -O3 -flto -o cfile ; if($?) { .\cfile }
 ```
 
-(Replace cfile with projpart2/projpart3/...; for projpart1, please exclude vmc.c and -flto)
+(Replace cfile with projpart1/projpart2/...)
 
 5. Run the Python code independently
 
