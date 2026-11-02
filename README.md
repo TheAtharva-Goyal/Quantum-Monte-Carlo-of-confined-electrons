@@ -85,7 +85,9 @@ Running `projpart1.c` gives $E_{min}=2.999771$ corresponding to $\alpha=1.011371
 
 
 ### Part 2: Plotting $E$ vs. $\alpha$ for $\Psi_{T1}$ and $E_{L1}$
-The code `projpart2.c` calculates values of $E$ at uniform intervals of $\alpha$ and plots the values using `plotter.py`
+The code `projpart2.c` calculates values of $E$ at uniform intervals of $\alpha$ for $\Psi_{T1}$ and $E_{L1}$ and stores the values for all three $\omega$ in `data.csv`.
+
+Use `plotter.py` to plot the graph according to the instructions given in **Running the programme**
 
 #### Graphs
 
@@ -95,7 +97,9 @@ The code `projpart2.c` calculates values of $E$ at uniform intervals of $\alpha$
 
 
 ### Part 3: Calculating $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for Uncorrelated System
-The code `projpart3.c` calculates the values of $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for $\Psi_{T1}$ and $E_{L1}$. Then plots $E$ and Var($E$) vs. $\alpha$ using `plotter.py`
+The code `projpart3.c` calculates the values of $E_{min}$, Var($E$) and $\langle\mathbf{r_{12}}\rangle$ for $\Psi_{T1}$ and $E_{L1}$. Then stores the values for all three $\omega$ in `data.csv`.
+
+Use `plotter.py` to plot the graph according to the instructions given in **Running the programme**
 
 Note: The programme runs with acceptance of ~50% and gives standard deviation of Energy $< 6.37\times 10^{-4}$ (not related to $Var(E_{min})$ ) and standard deviation of Separation $< 2.06\times 10^{-2}$ for all three values of $\omega$ in 100 runs of 5 million Monte Carlo steps each at the minima.
 
@@ -104,7 +108,7 @@ The deviation of calculated $E_{min}$ from analytical expression of energy expec
 Results:
 
 | $\omega$ | Optimal $\alpha$ | Estimated $E_{min}$ | $\langle\mathbf{r_{12}}\rangle$ | $Var(E_{min})$ |
-|----------|------------------|---------------------|---------------------------------|----------------|
+|----------|------------------|---------------------|---------------------------------|---------|
 | 0.01 | 0.437310  | 0.093629        | 24.130319 | 0.001365   |
 | 0.5  | 0.817296  | 2.040659        | 2.496515  | 0.126559   |
 | 1.0  | 0.878946  | 3.773088        | 1.702181  | 0.269931   |
@@ -232,12 +236,12 @@ This creates/updates the project's .venv environment and installs the dependenci
 For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
 
 ```powershell
-    gcc cfile.c -O3 -o cfile && if($?) { .\cfile }
+    gcc cfile.c vmc.c -O3 -flto -o cfile && if($?) { .\cfile }
 ```
 
-(Replace cfile with projpart1/projpart2/...)
+(Replace cfile with projpart2/projpart3/...; for projpart1, please exclude vmc.c and -flto)
 
-4. To run the Python code independently
+4. Run the Python code independently
 
 ```powershell
     uv run pythonfile.py omega
@@ -245,7 +249,7 @@ For example, using GCC: (ensure that the terminal is open in the folder containi
 
 Replace pythonfile with plotter/abplotter.
 
-The plotting files require their corresponding .csv files to be present. Run the relevent C programmes to generate data where necessary. `plotter.py` only plots for the $\omega$ present in the files for Parts 2 and 3. for `abplotter.py`, run the script separately for each value of $\omega$.
+The plotting files require their corresponding .csv files to be present. Run the relevent C programmes to generate data where necessary. Run `plotter.py` or `abplotter.py` separately for each value of $\omega$ (for example, `uv run plotter.py 0.5` will plot the graph for $\omega=0.5$).
 
 5. Deactivate once you are done
 
@@ -291,12 +295,12 @@ Activate the virtual environment
 For example, using GCC: (ensure that the terminal is open in the folder containing the C files and that the venv environment is activated)
 
 ```powershell
-    gcc cfile.c -O3 -o cfile && if($?) { .\cfile }
+    gcc cfile.c vmc.c -O3 -flto -o cfile && if($?) { .\cfile }
 ```
 
-(Replace cfile with projpart1/projpart2/...)
+(Replace cfile with projpart2/projpart3/...; for projpart1, please exclude vmc.c and -flto)
 
-5. To run the Python code independently
+5. Run the Python code independently
 
 ```powershell
     python pythonfile.py omega
@@ -304,14 +308,13 @@ For example, using GCC: (ensure that the terminal is open in the folder containi
 
 Replace pythonfile with plotter/abplotter.
 
-The plotting files require their corresponding .csv files to be present. Run the relevent C programmes to generate data where necessary. `plotter.py` only plots for the $\omega$ present in the files for Parts 2 and 3. for `abplotter.py`, run the script separately for each value of $\omega$.
+The plotting files require their corresponding .csv files to be present. Run the relevent C programmes to generate data where necessary. Run `plotter.py` or `abplotter.py` separately for each value of $\omega$ (for example, `uv run plotter.py 0.5` will plot the graph for $\omega=0.5$).
 
 6. Deactivate once you are done
 
 ```powershell
     deactivate
 ```
-
 
 ---
 ### References
