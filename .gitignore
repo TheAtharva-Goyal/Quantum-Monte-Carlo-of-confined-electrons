@@ -19,6 +19,9 @@ Thumbs.db
 
 # Miscellaneous files
 *.csv
+projpart2old.c
+projpart3old.c
+projpart4old.c
 projpart3failure.c
 projpartfun.c
 triakx.c
