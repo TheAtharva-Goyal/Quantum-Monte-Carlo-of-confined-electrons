@@ -81,7 +81,7 @@ We thereafter use the optimal value of $\alpha$ as the starting point for comput
 ### Part 1: Minimum Energy for Non-interacting System
 The ground state energy for two-electron, non-interacting system is $3\omega$ (since the ground state energy for a single electron is $\frac{3\omega}{2}$) at $\alpha=1.0$. Hence, the exact result is $E=3$ atomic units at $\omega=1.0$. This acts as a benchmark for the code.
 
-Running `projpart1.c` gives $E_{min}=2.999918$ corresponding to $\alpha=0.990000$ at $\omega=1.0$, with acceptance rate of 62.09%.
+Running `projpart1.c` gives $E_{min}=2.999918$ corresponding to $\alpha=0.990000$ at $\omega=1.0$, with acceptance rate of 49.74%.
 
 
 ### Part 2: Plotting $E$ vs. $\alpha$ for $\Psi_{T1}$ and $E_{L1}$

@@ -39,7 +39,7 @@ int main(){
     for(int i=0; i<N_al; i++){
         if(Ealpha[i]<Ealpha[idx]) idx=i; //finding the minimum of E(alpha)
     }
-    printf("Acceptance percentage is %f\n", 125.0*ar/(double)(N_al*(N_r-B)));
+    printf("Acceptance percentage is %f\n", 100.0*ar/(double)(N_al*(N_r-B)));
     printf("Minimum E(alpha) is: %f\nCorresponding to alpha: %f\n", Ealpha[idx], a[idx]);
     return 0;
 }
